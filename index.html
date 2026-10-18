@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>宇时俱进｜科技文章</title>
+<style>
+  :root{--bg:#f7f8fa;--card:#fff;--text:#1f2328;--muted:#656d76;--accent:#0969da;--border:#d0d7de}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+  .wrap{max-width:720px;margin:0 auto;padding:16px}
+  header{padding:24px 0 8px;border-bottom:2px solid var(--accent);margin-bottom:16px}
+  h1{font-size:24px;color:var(--accent)}
+  .sub{color:var(--muted);font-size:14px;margin-top:4px}
+  .list-title{font-size:16px;color:var(--muted);margin:16px 0 8px}
+  a.card{display:block;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:12px 14px;margin-bottom:10px;text-decoration:none;color:var(--text)}
+  a.card:hover{border-color:var(--accent)}
+  .card h2{font-size:17px;margin-bottom:4px}
+  .card .meta{color:var(--muted);font-size:12px}
+  .card p{color:var(--muted);font-size:14px;margin-top:6px}
+  article{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:16px;margin:16px 0}
+  article h2{font-size:20px;margin-bottom:8px}
+  article .meta{color:var(--muted);font-size:13px;margin-bottom:10px}
+  article img{max-width:100%;height:auto;border-radius:6px;margin:10px 0}
+  article p{margin:8px 0}
+  .test-badge{display:inline-block;background:#fff8c5;color:#7d4e00;font-size:12px;padding:2px 8px;border-radius:12px;margin-left:8px}
+  button.copy{background:var(--accent);color:#fff;border:none;border-radius:6px;padding:6px 14px;font-size:14px;cursor:pointer}
+  button.copy:active{opacity:.8}
+  .tips{color:var(--muted);font-size:13px;background:#fff;border:1px dashed var(--border);border-radius:8px;padding:12px;margin-top:16px}
+  footer{color:var(--muted);font-size:12px;text-align:center;padding:24px 0 32px}
+  @media(max-width:480px){h1{font-size:20px}.wrap{padding:12px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>宇时俱进｜科技文章</h1>
+    <div class="sub">关注科技与 AI 产业，用简单的话讲清楚复杂的技术。</div>
+  </header>
+
+  <div class="list-title">文章列表</div>
+  <a class="card" href="#art-1">
+    <h2>示例文章：科技行业的三个新趋势 <span class="test-badge">测试内容</span></h2>
+    <div class="meta">2026-10-18 · 科技观察</div>
+    <p>这是用于演示页面效果的示例文章，非真实新闻。点击阅读全文。</p>
+  </a>
+
+  <article id="art-1">
+    <h2>示例文章：科技行业的三个新趋势 <span class="test-badge">测试内容</span></h2>
+    <div class="meta">2026-10-18 · 科技观察 · 约 3 分钟</div>
+    <button class="copy" onclick="copyText('art-1')">一键复制正文</button>
+    <p><img src="images/article1.jpg" alt="示例配图" onerror="this.style.display='none'"></p>
+    <p>【测试内容】本文为演示页面排版与功能而编写的示例文章，不构成任何真实新闻报道或投资建议。</p>
+    <p>科技行业持续变化，新技术的落地节奏也在加快。以下三个方向值得关注：</p>
+    <p>第一，人工智能正在从"能回答问题"走向"能完成工作任务"，工具链和生态逐渐成熟。</p>
+    <p>第二，端侧设备（手机、PC、穿戴设备）开始承载更多本地计算能力，隐私与效率取得更好平衡。</p>
+    <p>第三，开源社区与商业产品的边界日益模糊，开放的协议正在重塑软件供应链。</p>
+    <p>以上为演示内容。后续在此位置替换为你的真实文章即可。</p>
+  </article>
+
+  <div class="tips">新增文章方法：在下方文章列表复制一个卡片（a class="card"），并复制一个 article 区块，修改标题、日期、正文与配图路径，最后给卡片链接指向对应区块 id（如 #art-2）。每篇文章都有独立锚点网址，可直接分享。</div>
+
+  <footer>宇时俱进 · GitHub Pages 免费托管 · 内容仅供学习交流</footer>
+</div>
+
+<script>
+function copyText(id){
+  var el=document.getElementById(id);
+  if(!el)return;
+  var txt=el.innerText.replace(/一键复制正文/g,'').trim();
+  function done(){var b=document.querySelector('button.copy');b.textContent='已复制 ✓';setTimeout(function(){b.textContent='一键复制正文';},1500);}
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(txt).then(done);
+  }else{
+    var ta=document.createElement('textarea');ta.value=txt;document.body.appendChild(ta);ta.select();
+    try{document.execCommand('copy');}catch(e){}
+    document.body.removeChild(ta);done();
+  }
+}
+</script>
+</body>
+</html>
